@@ -15,7 +15,10 @@ functions:
   uploader:
     handler: index.handler
     events:
-      - http: POST /file/upload
+      - http:
+          path: /upload
+          method: POST
+          cors: true
     role: UploadRole
 
 resources:

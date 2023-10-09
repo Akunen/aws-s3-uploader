@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function FileUpload() {
   const apiUrl = process.env.REACT_APP_API_URL;
+
   const [file, setFile] = useState(null);
 
   const handleFileChange = (e) => {
@@ -15,6 +16,7 @@ function FileUpload() {
       formData.append('file', file);
 
       try {
+
         const response = await fetch(apiUrl, {
           method: 'POST',
           body: formData,
@@ -28,6 +30,7 @@ function FileUpload() {
         console.log(data.link);
       } catch (error) {
         console.error('Error uploading file', error);
+        console.log(apiUrl);
       }
     }
   };
