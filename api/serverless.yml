@@ -17,8 +17,8 @@ functions:
     events:
       - http:
           path: /upload
-          method: POST
           cors: true
+          method: post
     role: UploadRole
 
 resources:
@@ -58,7 +58,6 @@ resources:
                     - s3:PutObjectAcl
                   Resource:
                     - Fn::Sub: 'arn:aws:s3:::${MyBucket}/*'
-
                 - Effect: Allow
                   Action:
                     - logs:CreateLogGroup
